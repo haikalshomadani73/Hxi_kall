@@ -108,7 +108,7 @@ window.onload = function(){
   <p id="errorMsg" style="color:red; display:none;">Password salah!</p>
 </div>
 
-<div id="content">
+<div id="content" class="fade">
       <img id="photo" src="your-photo.jpg" alt="Foto Haikal">
 
       <h2>Tentang Saya</h2>
@@ -152,17 +152,17 @@ window.onload = function(){
 
 <script>
   function checkPassword() {
-    const correctPassword = "12345";
-    const input = document.getElementById("pwd").value;
-    if (input === correctPassword) {
-      document.getElementById("intro").style.display = "none";
-      const content = document.getElementById("content");
-      content.style.display = "block";
-      content.style.opacity = 0;
-      setTimeout(() => {
-        content.style.transition = "opacity 1.5s";
-        content.style.opacity = 1;
-      }, 50);
+  const correctPassword = "12345";
+  const input = document.getElementById("pwd").value;
+  if (input === correctPassword) {
+    document.getElementById("intro").style.display = "none";
+    const content = document.getElementById("content");
+    content.style.display = "block";
+    setTimeout(() => content.classList.add("show"), 100);
+  } else {
+    document.getElementById("errorMsg").style.display = "block";
+  }
+}, 50);
     } else {
       document.getElementById("errorMsg").style.display = "block";
     }
