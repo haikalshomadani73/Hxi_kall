@@ -1,76 +1,132 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Haikal — Personal Branding</title>
-<style>
-  *{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto;--bg:#071028;color:#e6eef6;background:linear-gradient(180deg,#071028,#081228)}
-  .hero{min-height:40vh;display:flex;align-items:center;justify-content:center;padding:40px}
-  .card{max-width:980px;width:100%;background:rgba(255,255,255,0.03);border-radius:14px;padding:28px;box-shadow:0 10px 30px rgba(0,0,0,0.5)}
-  .herohead{display:flex;gap:20px;align-items:center}
-  .avatar{width:110px;height:110px;border-radius:16px;background:linear-gradient(135deg,#06b6d4,#2563eb);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:28px}
-  h1{margin:0;font-size:28px}
-  p.lead{color:#b8d6de}
-  .section{margin-top:18px}
-  .badges{display:flex;gap:8px;flex-wrap:wrap}
-  .badge{background:rgba(255,255,255,0.04);padding:8px 10px;border-radius:999px;font-size:13px}
-  @media(max-width:720px){.hero{padding:20px}.avatar{width:80px;height:80px}}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Muhammad Haikal Shomadani</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0f0f0f;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .center-box {
+      text-align: center;
+    }
+    h1 {
+      font-size: 42px;
+      letter-spacing: 2px;
+      margin-bottom: 20px;
+    }
+    #passwordBox {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      width: 260px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    input {
+      padding: 12px;
+      border-radius: 6px;
+      border: none;
+      font-size: 16px;
+    }
+    button {
+      padding: 12px;
+      border: none;
+      border-radius: 6px;
+      background: #ffffff22;
+      color: white;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    button:hover {
+      background: #ffffff44;
+    }
+    #content {
+      display: none;
+      max-width: 800px;
+      padding: 20px;
+      line-height: 1.6;
+    }
+    h2 {
+      margin-top: 30px;
+      border-bottom: 1px solid #444;
+      padding-bottom: 5px;
+    }
+    ul {
+      margin-left: 20px;
+    }
+  </style>
 </head>
 <body>
-  <div class="hero">
-    <div class="card">
-      <div class="herohead">
-        <div class="avatar">HA</div>
-        <div>
-          <h1>Muhammad Haikal Shomadani</h1>
-          <p class="lead">Teknik Mesin • Mekanik & Pemeliharaan • CAD/CAM • NC/CNC</p>
-          <div style="margin-top:8px" class="badges">
-            <span class="badge">CAD/CAM</span><span class="badge">NC/CNC</span><span class="badge">Maintenance</span><span class="badge">Fabrication</span>
-          </div>
-        </div>
-      </div>
 
-      <div class="section">
-        <h3>Tentang Saya</h3>
-        <p>Saya lulusan Teknik Mesin Politeknik Negeri Malang... (ringkasan kemampuan teknis dan soft skill Anda).</p>
-      </div>
+<div class="center-box" id="intro">
+  <h1>MUHAMMAD HAIKAL SHOMADANI</h1>
 
-      <div class="section" style="display:flex;gap:12px;flex-wrap:wrap">
-        <a href="#" id="cv" style="background:#06b6d4;color:#042; padding:8px 14px;border-radius:10px;text-decoration:none;font-weight:700">Download CV</a>
-        <a href="#experience" style="border:1px solid rgba(255,255,255,0.06);padding:8px 14px;border-radius:10px;color:inherit;text-decoration:none">Lihat Pengalaman</a>
-      </div>
-    </div>
+  <div id="passwordBox">
+    <input type="password" id="pwd" placeholder="Masukkan Password">
+    <button onclick="checkPassword()">Masuk</button>
   </div>
+  <p id="errorMsg" style="color:red; display:none;">Password salah!</p>
+</div>
 
-  <div style="max-width:980px;margin:18px auto;padding:0 18px">
-    <div style="background:#fff;padding:20px;border-radius:12px">
-      <h2 id="experience">Pengalaman</h2>
-      <p><strong>Mekanik | PT. Swabina Gatra</strong> — September 2024 – Sekarang. Pemeliharaan preventive & corrective ...</p>
-      <p><strong>Mekanik (Magang) | PT. Petrokimia Gresik</strong> — Juni - Agustus 2023. Shutdown, perbaikan heat exchanger, dll.</p>
-      <h3>Pendidikan</h3>
-      <p>Politeknik Negeri Malang — Teknik Mesin (2021 - 2024)</p>
-      <h3>Pelatihan</h3>
-      <p>Solidworks 2D & 3D Modelling — Nov 2023</p>
-    </div>
-  </div>
+<div id="content">
+  <h2>Tentang Saya</h2>
+  <p>Saya lulusan Teknik Mesin Politeknik Negeri Malang dan menekuni keahlian di Bidang Teknik Mesin. Saya mampu mengoperasikan mesin-mesin perkakas, melakukan pengukuran mekanik presisi, menggunakan perkakas tangan, menggambar desain mesin menggunakan software CAD & CAM, memprogram mesin NC/CNC, bekerja sama dalam tim maupun individu, serta menerapkan prinsip Kesehatan dan Keselamatan Kerja.</p>
+
+  <h2>Pendidikan</h2>
+  <p><strong>Politeknik Negeri Malang</strong> | Teknik Mesin | 2021 - 2024</p>
+  <p><strong>SMAN 1 Sidayu</strong> | IPA</p>
+
+  <h2>Pengalaman</h2>
+  <p><strong>Mekanik (Magang) | PT. Petrokimia Gresik | Juni - Agustus 2023</strong></p>
+  <ul>
+    <li>Pemeliharaan preventive & corrective mesin produksi.</li>
+    <li>Perbaikan mesin metode shutdown.</li>
+    <li>Pembuatan prosedur perawatan mesin.</li>
+    <li>Perbaikan seal heat exchanger oil cooler.</li>
+    <li>Perbaikan waste heat boiler.</li>
+    <li>Penggantian Filter Natural Gas untuk pembakaran produksi.</li>
+  </ul>
+
+  <p><strong>Mekanik | PT. Swabina Gatra | September 2024 – Sekarang</strong></p>
+  <ul>
+    <li>Pemeliharaan mesin: Milling, Air Cleaner, Boiler, HTST, conveyor, Mixer, Compressor, Pump, Motor.</li>
+    <li>Reparasi mesin, assembly, modifikasi part.</li>
+    <li>Pembuatan prosedur perawatan berkala.</li>
+    <li>Praktik fabrikasi & pengelasan.</li>
+    <li>2D & 3D Modelling.</li>
+    <li>Kelistrikan dasar.</li>
+  </ul>
+
+  <h2>Pelatihan</h2>
+  <p><strong>Pelatihan SolidWorks 2D & 3D Modelling | Himpunan Mahasiswa Mesin Polinema | November 2023</strong></p>
+  <ul>
+    <li>Membuat desain 2D dan part 3D modelling.</li>
+    <li>Assembly part menjadi sebuah produk.</li>
+  </ul>
+</div>
 
 <script>
-document.getElementById('cv').addEventListener('click', function(e){
-  e.preventDefault();
-  const content = [
-    "Muhammad Haikal Shomadani",
-    "",
-    "Tentang Saya:",
-    "Saya lulusan Teknik Mesin Politeknik Negeri Malang ...",
-    "",
-    "Pengalaman:",
-    "Mekanik | PT. Swabina Gatra | Sep 2024 – Sekarang",
-    "Mekanik (Magang) | PT. Petrokimia Gresik | Jun - Aug 2023"
-  ];
-  const blob = new Blob([content.join('\\n')], {type:'text/plain'});
-  const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download='CV_Haikal.txt'; a.click();
-});
+  function checkPassword() {
+    const correctPassword = "12345"; // Ganti password di sini
+    const input = document.getElementById("pwd").value;
+    if (input === correctPassword) {
+      document.getElementById("intro").style.display = "none";
+      document.getElementById("content").style.display = "block";
+    } else {
+      document.getElementById("errorMsg").style.display = "block";
+    }
+  }
 </script>
+
 </body>
 </html>
