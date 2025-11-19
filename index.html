@@ -106,6 +106,27 @@
 </head>
 <body>
 
+<!-- PASSWORD SCREEN -->
+<div id="intro" style="width:100%;height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;background:#0b1720;color:white;text-align:center;position:fixed;top:0;left:0;z-index:9999;">
+  <h1 style="font-size:42px;letter-spacing:2px;margin-bottom:20px;">MUHAMMAD HAIKAL SHOMADANI</h1>
+  <input id="pwd" type="password" placeholder="Masukkan Password" style="padding:12px;width:260px;border-radius:6px;border:none;font-size:16px;">
+  <button onclick="checkPassword()" style="margin-top:12px;padding:12px 20px;border:none;border-radius:6px;background:#0f766e;color:white;font-size:15px;cursor:pointer;">Masuk</button>
+  <p id="errorMsg" style="color:#ff6b6b;display:none;margin-top:10px;font-size:14px;">Password salah!</p>
+</div>
+
+<script>
+function checkPassword(){
+  const pass = document.getElementById('pwd').value;
+  if(pass === "HaikalPro77"){
+    document.getElementById('intro').style.display = 'none';
+    document.getElementById('main').style.display = 'block';
+  } else {
+    document.getElementById('errorMsg').style.display = 'block';
+  }
+}
+</script>
+
+
 <div id="main" style="display:block;">
   <div class="container">
 
