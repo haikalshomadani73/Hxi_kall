@@ -1,71 +1,76 @@
 <!doctype html>
 <html lang="id">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Personal Branding — Protected</title>
-  <style>
-    body{
-      margin:0;
-      font-family:Inter, sans-serif;
-      background:#0b1220;
-      color:white;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      height:100vh;
-    }
-    h1{font-size:48px;font-weight:700;}
-    .overlay{
-      position:fixed;inset:0;background:#000a;display:flex;
-      align-items:center;justify-content:center;z-index:100;
-    }
-    .card{
-      background:#111a;
-      padding:20px;border-radius:10px;
-      backdrop-filter:blur(8px);
-    }
-    input{
-      width:100%;padding:10px;margin-top:10px;border-radius:8px;
-      border:1px solid #555;background:#0003;color:white;
-    }
-    button{
-      margin-top:10px;width:100%;padding:10px;border:0;
-      border-radius:8px;background:#0ea5a4;color:#022;font-weight:700;
-    }
-  </style>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Haikal — Personal Branding</title>
+<style>
+  *{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto;--bg:#071028;color:#e6eef6;background:linear-gradient(180deg,#071028,#081228)}
+  .hero{min-height:40vh;display:flex;align-items:center;justify-content:center;padding:40px}
+  .card{max-width:980px;width:100%;background:rgba(255,255,255,0.03);border-radius:14px;padding:28px;box-shadow:0 10px 30px rgba(0,0,0,0.5)}
+  .herohead{display:flex;gap:20px;align-items:center}
+  .avatar{width:110px;height:110px;border-radius:16px;background:linear-gradient(135deg,#06b6d4,#2563eb);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:28px}
+  h1{margin:0;font-size:28px}
+  p.lead{color:#b8d6de}
+  .section{margin-top:18px}
+  .badges{display:flex;gap:8px;flex-wrap:wrap}
+  .badge{background:rgba(255,255,255,0.04);padding:8px 10px;border-radius:999px;font-size:13px}
+  @media(max-width:720px){.hero{padding:20px}.avatar{width:80px;height:80px}}
+</style>
 </head>
 <body>
+  <div class="hero">
+    <div class="card">
+      <div class="herohead">
+        <div class="avatar">HA</div>
+        <div>
+          <h1>Muhammad Haikal Shomadani</h1>
+          <p class="lead">Teknik Mesin • Mekanik & Pemeliharaan • CAD/CAM • NC/CNC</p>
+          <div style="margin-top:8px" class="badges">
+            <span class="badge">CAD/CAM</span><span class="badge">NC/CNC</span><span class="badge">Maintenance</span><span class="badge">Fabrication</span>
+          </div>
+        </div>
+      </div>
 
-<div class="overlay" id="gate">
-  <div class="card">
-    <h3>Masukkan Kata Sandi</h3>
-    <input id="pw" type="password" placeholder="Password">
-    <button id="enter">Masuk</button>
+      <div class="section">
+        <h3>Tentang Saya</h3>
+        <p>Saya lulusan Teknik Mesin Politeknik Negeri Malang... (ringkasan kemampuan teknis dan soft skill Anda).</p>
+      </div>
+
+      <div class="section" style="display:flex;gap:12px;flex-wrap:wrap">
+        <a href="#" id="cv" style="background:#06b6d4;color:#042; padding:8px 14px;border-radius:10px;text-decoration:none;font-weight:700">Download CV</a>
+        <a href="#experience" style="border:1px solid rgba(255,255,255,0.06);padding:8px 14px;border-radius:10px;color:inherit;text-decoration:none">Lihat Pengalaman</a>
+      </div>
+    </div>
   </div>
-</div>
 
-<h1>Muhammad Haikal Shomadani</h1>
+  <div style="max-width:980px;margin:18px auto;padding:0 18px">
+    <div style="background:#fff;padding:20px;border-radius:12px">
+      <h2 id="experience">Pengalaman</h2>
+      <p><strong>Mekanik | PT. Swabina Gatra</strong> — September 2024 – Sekarang. Pemeliharaan preventive & corrective ...</p>
+      <p><strong>Mekanik (Magang) | PT. Petrokimia Gresik</strong> — Juni - Agustus 2023. Shutdown, perbaikan heat exchanger, dll.</p>
+      <h3>Pendidikan</h3>
+      <p>Politeknik Negeri Malang — Teknik Mesin (2021 - 2024)</p>
+      <h3>Pelatihan</h3>
+      <p>Solidworks 2D & 3D Modelling — Nov 2023</p>
+    </div>
+  </div>
 
 <script>
-const PASSWORD_HASH = "c7977758edbdbc0f38101dce9512c7a3ea010f5e5c4287a31d46ba5dcd7a9a14";
-
-async function sha256(str){
-  const data = new TextEncoder().encode(str);
-  const hash = await crypto.subtle.digest("SHA-256", data);
-  return Array.from(new Uint8Array(hash)).map(b=>b.toString(16).padStart(2,'0')).join('');
-}
-
-document.getElementById("enter").onclick = async ()=>{
-  let value = document.getElementById("pw").value;
-  let h = await sha256(value);
-  if(h === PASSWORD_HASH){
-    document.getElementById("gate").style.display="none";
-  } else {
-    alert("Password salah!");
-  }
-};
+document.getElementById('cv').addEventListener('click', function(e){
+  e.preventDefault();
+  const content = [
+    "Muhammad Haikal Shomadani",
+    "",
+    "Tentang Saya:",
+    "Saya lulusan Teknik Mesin Politeknik Negeri Malang ...",
+    "",
+    "Pengalaman:",
+    "Mekanik | PT. Swabina Gatra | Sep 2024 – Sekarang",
+    "Mekanik (Magang) | PT. Petrokimia Gresik | Jun - Aug 2023"
+  ];
+  const blob = new Blob([content.join('\\n')], {type:'text/plain'});
+  const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download='CV_Haikal.txt'; a.click();
+});
 </script>
-
 </body>
 </html>
